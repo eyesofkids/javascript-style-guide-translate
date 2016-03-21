@@ -4,4 +4,4 @@ Translate and Collect from other javascript style guide.
 
 ## Changlog
 
-- 2016/3/21 upload Airbnb React/JSX style guide
+- 2016/3/21 translate [Airbnb React/JSX style guide](https://github.com/airbnb/javascript/tree/master/react)
