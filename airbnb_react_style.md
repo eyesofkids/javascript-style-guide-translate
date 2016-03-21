@@ -4,18 +4,18 @@
 
 ## Table of Contents
 
-  1. [Basic Rules](#basic-rules)
+  1. [基本規則](#basic-rules)
   1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-  1. [Naming](#naming)
-  1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
-  1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
-  1. [Props](#props)
-  1. [Parentheses](#parentheses)
-  1. [Tags](#tags)
-  1. [Methods](#methods)
-  1. [Ordering](#ordering)
+  1. [命名](#naming)
+  1. [宣告](#declaration)
+  1. [對齊](#alignment)
+  1. [引號](#quotes)
+  1. [空白](#spacing)
+  1. [屬性(Props)](#props)
+  1. [括號](#parentheses)
+  1. [標籤](#tags)
+  1. [方法](#methods)
+  1. [順序](#ordering)
   1. [`isMounted`](#ismounted)
 
 ## 基本規則
