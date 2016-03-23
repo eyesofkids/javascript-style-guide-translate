@@ -44,7 +44,7 @@ Use PascalCase for React components and camelCase for their instances.
 中文翻譯字句：
 
 ```
-React元件使用巴斯卡(PascalCase)命名法，它們的實例則使用小駝峰(camelCase)命名法
+對React元件使用巴斯卡(PascalCase)命名法，它們的實例則使用小駝峰(camelCase)命名法。
 ```
 
 ### 符號
@@ -119,7 +119,7 @@ Use computed property names when creating objects with dynamic property names.
 
 ### 繁體與簡體中文字詞
 
-不要直接把簡體中文翻譯字詞，直接套用到繁體中文翻譯字詞上，而應該儘可能轉換為常用的專門名詞。繁體中文的閱讀對象，仍然是繁體中文的使用者，反之亦然。例如以下常見的對照字詞：
+不要直接把簡體中文翻譯字詞，直接套用到繁體中文翻譯字詞上，而應該儘可能轉換為常用的專門名詞。。例如以下常見的對照字詞：
 
 ```
 數據庫 vs 資料庫
