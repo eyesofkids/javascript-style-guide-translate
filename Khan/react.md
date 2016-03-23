@@ -32,9 +32,9 @@
 ----------
 ### 語法
 
-#### 依照順序排序你的方法，lifecycle(生命週期)放前面，render(渲染、轉譯)放在最後面。
+#### 依照順序排序你的方法，lifecycle(生命週期)放前面，render(渲染)放在最後面。
 
-在你的react元件中，你應該依照順序排序你的方法例如這樣:
+在你的react元件中，你應該依照順序排序方法，例如這樣:
 
 1. lifecycle(生命週期)方法 (按照時間的先後順序:
       `getDefaultProps`,
@@ -49,7 +49,7 @@
 2. 其他的程式碼
 3. `render`
 
-#### 用`handleEventName` 命名handlers(處理程序) .
+#### 用`handleEventName`來命名handlers(處理程序) .
 
 例如:
 
@@ -57,9 +57,9 @@
 <Component onClick={this.handleClick} onLaunchMissiles={this.handleLaunchMissiles} />
 ```
 
-#### 用`onEventName`命名在props(屬性)中的handlers(處理程序)  .
+#### 用`onEventName`來命名在props(屬性)中的handlers(處理程序)  .
 
-這在React的事件命名是有一致性的: `onClick`, `onDrag`,
+這與React的事件命名方式是一致的: `onClick`, `onDrag`,
 `onChange`, 等等。
 
 例如:
@@ -160,9 +160,7 @@ and is especially bad.
 
 #### 使用[propTypes](http://facebook.github.io/react/docs/reusable-components.html).
 
-React Components should always have complete `propTypes`. Every
-attribute of `this.props` should have a corresponding entry in
-`propTypes`. This documents that props need to be passed to a model.
+React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應該在`propTypes`裡有相對應的登錄項目。This documents that props need to be passed to a model.
 ([example](https://github.com/Khan/webapp/blob/32aa862769d4e93c477dc0ee0388816056252c4a/javascript/search-package/search-results-list.jsx#L14))
 
 If you are passing data through to a child component, you can use
