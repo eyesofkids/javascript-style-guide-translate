@@ -1,6 +1,6 @@
 # Airbnb React/JSX Style Guide
 
-*A mostly reasonable approach to React and JSX*
+*對於 React 與 JSX 大部份情況下都適當的作法*
 
 ## Table of Contents
 
