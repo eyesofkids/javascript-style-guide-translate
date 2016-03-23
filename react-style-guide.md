@@ -1,7 +1,7 @@
 ## React 風格指引
 
 > 這份風格指引是來自額外增加於[Airbnb React/JSX Guide](https://github.com/airbnb/javascript/tree/master/react)。
-> 你可以自由修改它來適合於你的專案需求。
+> 你可以自由修改它來適符合於你的專案需求。
 
 ### 目錄
 
@@ -37,7 +37,7 @@
 }
 ```
 
-更多資訊請google查詢[component-based UI development](https://google.com/search?q=component-based+ui+development).
+更多資訊請用google查詢[component-based UI development](https://google.com/search?q=component-based+ui+development).
 
 ### 建議使用函式型的元件
 
@@ -66,7 +66,7 @@ Navigation.propTypes = { items: PropTypes.array.isRequired };
 
 * 使用CSS模組<br>
   這將可以使用簡短的CSS類別名稱，以及同時間可避免衝突。
-* 保持CSS簡單而且是敘述式的。避免迴圈、混入(mixins)等等。
+* 保持CSS簡單而且是敘述式的。避免迴圈、mixins(混入)等等。
 * 請自由使用在CSS中的變數，透過[precss](https://github.com/jonathantneal/precss) 外掛於[PostCSS](https://github.com/postcss/postcss)
 * 建議使用CSS類別選擇器(selectors)，而不要使用元素與`id`選擇器(請見[BEM](https://bem.info/))
 * 避免巢狀的CSS選擇器(selectors)(請見[BEM](https://bem.info/))

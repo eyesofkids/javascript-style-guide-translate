@@ -60,7 +60,7 @@
 #### 用`onEventName`命名在props(屬性)中的handlers(處理程序)  .
 
 這在React的事件命名是有一致性的: `onClick`, `onDrag`,
-`onChange`, 等等.
+`onChange`, 等等。
 
 例如:
 
@@ -69,9 +69,9 @@
 ```
 
 
-#### Open elements on the same line.
+#### 開頭元素放在同一行
 
-The 80-character line limit is a bit tight, so we opt to conserve the extra 4.
+一行80個字元的限制是有點緊湊，所以我們選擇保留額外的4個。
 
 Yes:
 ```jsx
@@ -89,13 +89,9 @@ return (      // "div" is not on the same line as "return"
 );
 ```
 
-#### Align and sort HTML properties.
+#### 對齊與排序HTML屬性
 
-Fit them all on the same line if you can. If you can't, put each
-property on a line of its own, indented four spaces, in sorted order.
-The closing angle brace should be on a line of its own, indented the
-same as the opening angle brace. This makes it easy to see the props
-at a glance.
+如果可以的話，將它們都放在同一行。如果沒辦法的話，把每個屬性獨立自己一行放置，並縮排4個空白字元，依序放置。封閉尖括號(>)應該也要自己獨立一行，縮排則和開頭的尖括號(<)一致。這樣作可以很容易的對屬性一目瞭然。
 
 Yes:
 ```jsx
@@ -124,15 +120,12 @@ No:
 >
 ```
 
-#### Only export a single react class.
+#### 只export(輸出)單一個react類別
 
-Every .jsx file should export a single React class, and nothing else.
-This is for testability; the fixture framework requires it to
-function.
+每個.jsx檔案應該只會輸出單一個React類別，不會有其他的。
+這是為了有可測試性；fixture框架會要求它功能。
 
-Note that the file can still define multiple classes, it just can't export
-more than one.
-
+注意檔案中仍然可以定義多個類別，但它不能輸出超過一個以上。
 
 ---------------------
 ### Language features
@@ -262,24 +255,21 @@ you must do so in `componentDidMount` or later in the component
 lifecycle. These functions are not executed server-side.
 
 ----------------------------------
-### React libraries and components
+### React 函式庫與元件
 
-#### Do not use Backbone models.
+#### 不要使用Backbone的models
 
-Use flux actions, or `$.ajax` directly, instead.
+使用flux的actions(動作)，或是直接使用`$.ajax`作為取代。
 
-We are trying to remove Backbone from our codebase entirely.
+我們試著要從我們的codebase整個移除掉Backbone。
 
 #### Minimize use of jQuery.
 
-*Never* use jQuery for DOM manipulation.
+*絕對不要* 使用jQuery來作DOM的操作處理。
 
-Try to avoid using jQuery plugins. When necessary, wrap the jQuery
-plugin with a React component so you only have to touch the jQuery
-once.
+試著避免使用jQuery外掛。真的有需要時，用一個React元件包裹jQuery外掛，這樣你只需要接觸到jQuery一次。
 
-You can use `$.ajax` (but no other function, such as `$.post`) for
-network communication.
+你可以使用`$.ajax` (但不要用其他的函式，例如`$.post`) 來進行網路的通訊。
 
 #### Reuse standard components.
 

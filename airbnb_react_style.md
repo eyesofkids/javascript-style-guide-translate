@@ -151,7 +151,7 @@
 
 ## 引號
 
-  - 對JSX的屬性，必定使用雙引號(`"`)，而對其他的JS語法則使用單引號。eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
+  - 對JSX的屬性，必定使用雙引號(`"`)，而對其他的JS語法則使用單引號(`'`)。eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > 為什麼? 因為JSX屬性 [無法包含跳脫引號](http://eslint.org/docs/rules/jsx-quotes)，所以雙引號才能配合像`"don't"`這樣的輸入字詞。
   > 一般的HTML屬性也習慣上會使用雙引號，而不使用單引號，所以JSX屬性也使用這個慣例。
@@ -172,7 +172,7 @@
 
 ## 空白
 
-  - 必定包含一個單格空白在你的自封閉標籤。
+  - 必定包含一個單格空白在你的自封閉標籤(/>)。
 
     ```javascript
     // bad
@@ -251,7 +251,7 @@
 
 ## 標籤(Tags)
 
-  - 當沒有子元素時，必定使用自封閉標籤。eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
+  - 當沒有子元素時，必定使用自封閉標籤(/>)。eslint: [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 
     ```javascript
     // bad
