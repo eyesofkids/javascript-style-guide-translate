@@ -2,13 +2,13 @@
 
 Translate and Collect from other javascript style guide.
 
-## List
+主要為翻譯與收集來自其他的Javascript風格指引的文件。
+
+## 列表 List
 
 - [Khan Academy Coding Style Guides](https://github.com/Khan/style-guides)
 - [Airbnb React/JSX style guide](https://github.com/airbnb/javascript/tree/master/react)
 - [React Style Guide](https://github.com/kriasoft/react-starter-kit/blob/master/docs/react-style-guide.md)
-
-主要為翻譯與收集來自其他的Javascript風格指引的文件。
 
 ## 動機 Motivation
 
