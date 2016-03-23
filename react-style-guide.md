@@ -1,7 +1,7 @@
 ## React 風格指引
 
 > 這份風格指引是來自額外增加於[Airbnb React/JSX Guide](https://github.com/airbnb/javascript/tree/master/react)。
-> 你可以自由修改它來適符合於你的專案需求。
+> 你可以自由修改它來符合你的專案需求。
 
 ### 目錄
 
@@ -12,12 +12,12 @@
 
 ### 每個UI元件分別使用不同資料夾
 
-* 將每個主要UI元件以及它的資源，放置在單獨的分隔資料夾中<br>
+* 將每個主要UI元件與它的資源，放置在單獨的分隔資料夾中<br>
   這讓你可以很容易的找到，對任何一個特定UI元素所使用的相關資源 (CSS、圖片、unit tests、本地化檔案等等)。當在重構(refactor)時，要移除這些元件也應該會很容易。
 * 避免存在多個元件間共享的CSS、圖片或其他資源檔案。<br>
   這將讓你的程式碼更容易維護，也容易進行重構(refactor)。
 * 加入`package.json`到每個元件的資料夾中。<br>
-  這可以更容易地參照到其他在你的程式碼中放在別處的元件。<br>
+  這可以更容易參照到，其他在你的程式碼裡放在別處的元件。<br>
   `import Nav from '../Nav'` vs `import Nav from '../Nav/Nav.js'`
 
 ```
@@ -42,7 +42,7 @@
 ### 建議使用函式型的元件
 
 * 建議儘可能的使用stateless(無狀態的)函式型元件。<br>
-  沒有state(狀態)的元件，比較好寫成一個簡單的純函式。
+  沒有state(狀態)的元件，比較容易寫成一個簡單的純函式。
 
 ```jsx
 // Bad
@@ -65,12 +65,12 @@ Navigation.propTypes = { items: PropTypes.array.isRequired };
 ### 使用CSS模組(Modules)
 
 * 使用CSS模組<br>
-  這將可以使用簡短的CSS類別名稱，以及同時間可避免衝突。
+  這將可以使用簡短的CSS類別名稱，同時間也可避免衝突。
 * 保持CSS簡單而且是敘述式的。避免迴圈、mixins(混入)等等。
 * 請自由使用在CSS中的變數，透過[precss](https://github.com/jonathantneal/precss) 外掛於[PostCSS](https://github.com/postcss/postcss)
-* 建議使用CSS類別選擇器(selectors)，而不要使用元素與`id`選擇器(請見[BEM](https://bem.info/))
+* 建議使用CSS類別選擇器(selectors)，而不要使用元素(element)與`id`選擇器(請見[BEM](https://bem.info/))
 * 避免巢狀的CSS選擇器(selectors)(請見[BEM](https://bem.info/))
-* 當有疑慮時，使用`.root { }`類別名稱給你元件的root元素。
+* 當有疑慮時，對元件的root元素使用`.root { }`類別名稱。
 
 ```scss
 // Navigation.scss
