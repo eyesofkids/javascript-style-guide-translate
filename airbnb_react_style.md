@@ -20,15 +20,15 @@
 
 ## 基本規則
 
-  - 每個程式碼檔案中只會包含一個React元件(component)
-    - 不過，多個[無狀態、純粹的元件](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) 同時寫在一個檔案中是允許的。eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
+  - 在每個程式碼檔案中只包含一個React元件(component)
+    - 不過，把多個[無狀態、純粹的元件](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) 同時寫在一個檔案中是允許的。eslint: [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md#ignorestateless).
   - 必定使用 JSX 語法。
-  - 不要使用 `React.createElement` ，除非你需要從一個不是JSX檔案來初始化應用程式。
+  - 不要使用`React.createElement`，除非你需要從一個不是JSX的檔案，來初始化應用程式。
 
 
-## 類別(Class) vs `React.createClass` vs 無狀態(stateless)
+## Class(類別) vs `React.createClass` vs stateless(無狀態)
 
-  - 如果你會有內部的 state(狀態) 與/或 refs(參照)，用 `class extends React.Component` 會比 `React.createClass` 更好，除非你有非常需要使用 mixins(混入) 的理由。eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - 如果你會有內部的 state(狀態) 與/或 refs(參照)，用 `class extends React.Component` 會比 `React.createClass` 更好，除非你有非得需要使用 mixins(混入) 的理由。eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
 > 譯者註：ES6 Class的對於Mixins解決方式，可參考[Mixins Are Dead. Long Live Composition](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.toy96djeg)
 
@@ -51,7 +51,7 @@
     }
     ```
 
-    而如果你並沒有用到 state 或 refs，建議連類別都不用了，使用一般的函式就好(不要用箭頭函式(arrow functions)):
+    而如果你並沒有用到 state 或 refs，建議連類別都不要使用，使用一般的函式就好(不要用箭頭函式(arrow functions)):
 
     ```javascript
 
@@ -62,7 +62,7 @@
       }
     }
 
-    // bad (since arrow functions do not have a "name" property)
+    // bad (因為箭頭函式不會有"name(名稱)"屬性)
     const Listing = ({ hello }) => (
       <div>{hello}</div>
     );
@@ -137,10 +137,10 @@
       anotherSuperLongParam="baz"
     />
 
-    // if props fit in one line then keep it on the same line
+    // 如果props(屬性)可以剛好寫在一行，就放在同一行
     <Foo bar="bar" />
 
-    // children get indented normally
+    // 子元素通常會縮排
     <Foo
       superLongParam="bar"
       anotherSuperLongParam="baz"
@@ -154,7 +154,7 @@
   - 對JSX的屬性，必定使用雙引號(`"`)，而對其他的JS語法則使用單引號(`'`)。eslint: [`jsx-quotes`](http://eslint.org/docs/rules/jsx-quotes)
 
   > 為什麼? 因為JSX屬性 [無法包含跳脫引號](http://eslint.org/docs/rules/jsx-quotes)，所以雙引號才能配合像`"don't"`這樣的輸入字詞。
-  > 一般的HTML屬性也習慣上會使用雙引號，而不使用單引號，所以JSX屬性也使用這個慣例。
+  > 一般的HTML屬性在習慣上會使用雙引號，而不會使用單引號，所以JSX屬性也使用這個慣例。
   
   ```javascript
     // bad
@@ -172,7 +172,7 @@
 
 ## 空白
 
-  - 必定包含一個單格空白在你的自封閉標籤(/>)。
+  - 必定包含一個單格空白字元( )在你的自封閉標籤(/>)。
 
     ```javascript
     // bad
@@ -223,7 +223,7 @@
 
 ## 括號
 
-  - 用括號括住JSX標籤，當它們的程式碼超過一行時。eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
+  - 當JSX的程式碼超過一行時，用括號括住JSX標籤。eslint: [`react/wrap-multilines`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md)
 
     ```javascript
     // bad
@@ -261,7 +261,7 @@
     <Foo className="stuff" />
     ```
 
-  - 當你的元件有多行屬性時，將封閉標籤放在新的一行。eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - 當你的元件有多行屬性時，將封閉標籤(/> 或 >)放在新的一行。eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```javascript
     // bad
@@ -280,7 +280,7 @@
 
   - 在建構式(constructor)中綁定(Bind)事件處理函式。 eslint: [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
 
-  > 為什麼? 放在render路徑中的綁定(bind)呼叫，在每次render時都會建立全新的函式。
+  > 為什麼? 放在render(渲染)路徑中的綁定(bind)呼叫，在每次render(渲染)時都會建立全新的函式。
 
     ```javascript
     // bad
@@ -312,7 +312,7 @@
     }
     ```
 
-  - 不要使用下底線(_)前綴字在React元件內部的方法。
+  - 不要使用下底線(_)前綴字在React元件內部的方法中。
 
     ```javascript
     // bad
@@ -338,7 +338,7 @@
 
   - 在`class extends React.Component`裡依照以下的順序:
 
-  1. 可選擇的 `static` methods
+  1. 可選擇的 `static` 方法
   1. `constructor`
   1. `getChildContext`
   1. `componentWillMount`
@@ -348,9 +348,9 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *clickHandlers 或 eventHandlers* 例如 `onClickSubmit()` 或 `onChangeDescription()`
+  1. *給`render`用的getter方法* 例如 `getSelectReason()` 或 `getFooterContent()`
+  1. *選擇性的render方法* 例如`renderNavigation()` 或 `renderProfilePicture()`
   1. `render`
 
   - 如何定義`propTypes`, `defaultProps`, `contextTypes`, 等等...
@@ -403,16 +403,16 @@
   1. `componentWillUpdate`
   1. `componentDidUpdate`
   1. `componentWillUnmount`
-  1. *clickHandlers or eventHandlers* like `onClickSubmit()` or `onChangeDescription()`
-  1. *getter methods for `render`* like `getSelectReason()` or `getFooterContent()`
-  1. *Optional render methods* like `renderNavigation()` or `renderProfilePicture()`
+  1. *clickHandlers 或 eventHandlers* 例如 `onClickSubmit()` 或 `onChangeDescription()`
+  1. *給`render`用的getter方法* 例如 `getSelectReason()` 或 `getFooterContent()`
+  1. *選擇性的render方法* 例如`renderNavigation()` 或 `renderProfilePicture()`
   1. `render`
 
 ## `isMounted`
 
   - 不要使用`isMounted`. eslint: [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md)
 
-  > 為什麼? [`isMounted`是個反模式][anti-pattern]，在當使用ES6類別時是無法使用的，在後面發展途中將會被官方棄用。
+  > 為什麼? [`isMounted`是個反模式][anti-pattern]，它在當你使用ES6類別時，是無法使用的。在之後發展過程中將會被官方棄用。
 
   [anti-pattern]: https://facebook.github.io/react/blog/2015/12/16/ismounted-antipattern.html
 
