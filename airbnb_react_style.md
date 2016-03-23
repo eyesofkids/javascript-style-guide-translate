@@ -51,7 +51,7 @@
     }
     ```
 
-    而如果你並沒有用到 state 或 refs，建議連類別都不要使用，使用一般的函式就好(不要用箭頭函式(arrow functions)):
+而如果你並沒有用到 state 或 refs，建議連類別都不要使用，使用一般的函式就好(不要用箭頭函式(arrow functions)):
 
     ```javascript
 
