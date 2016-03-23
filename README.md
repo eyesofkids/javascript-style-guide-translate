@@ -31,9 +31,6 @@ Translate and Collect from other javascript style guide.
 ```
 state(狀態)
 props(屬性)
-標籤(Tags)
-小駝峰命名法(camelCase)
-宣告(Declaration)
 ```
 
 對於專用術語、形容詞、或可能通用的一詞多義的英文字詞，翻譯其字詞，但使用括號(())將原英文字詞加註其後，作為補充，例如：
