@@ -191,7 +191,7 @@
 
 ## Props(屬性)
 
-  - 必定使用小駝峰(camelCase)命名法來命名prop(屬性)名稱。
+  - 必定使用小駝峰(camelCase)命名法，來命名prop(屬性)名稱。
 
     ```javascript
     // bad
@@ -207,7 +207,7 @@
     />
     ```
 
-  - 當prop(屬性)是明確的`true`數值時，省略它的數值。eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
+  - 當prop(屬性)是明確的`true`值時，省略它的數值。eslint: [`react/jsx-boolean-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md)
 
     ```javascript
     // bad
