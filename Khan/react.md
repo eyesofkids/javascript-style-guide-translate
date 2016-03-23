@@ -82,7 +82,7 @@ return <div>
 
 No:
 ```jsx
-return (      // "div" is not on the same line as "return"
+return (      // "div" 沒放在和 "return" 同一行
     <div>
         ...
     </div>
@@ -128,22 +128,20 @@ No:
 注意檔案中仍然可以定義多個類別，但它不能輸出超過一個以上。
 
 ---------------------
-### Language features
+### 語言特性
 
-#### Make "presentation" components pure.
+#### 讓"presentation(呈現)"元件保持純粹(pure)
 
-It's useful to think of the React world as divided into ["logic"
-components and "presentation" components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
+思考把React的世界區分成["logic"
+components 與 "presentation" components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)是很有好處的。
 
-"Logic" components have application logic, but do not emit HTML
-themselves.
+"Logic(邏輯)"元件有應用程式的邏輯，但它們本身不會產出HTML。
 
-"Presentation" components are typically reusable, and do emit HTML.
+"Presentation(呈現)"元件是典型地可重覆使用的，以及的確會產出HTML。
 
-Logic components can have internal state, but presentation components
-never should.
+Logic(邏輯)元件可以有內部的state(狀態)，但presentation(呈現)元件則完全不會有。
 
-#### Prefer [props to state](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state).
+#### 建議使用[props(屬性)而不是state(狀態)](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state).
 
 You almost always want to use props. By avoiding state when possible,
 you minimize redundancy, making it easier to reason about your
@@ -160,7 +158,7 @@ way.
 Copying data from props to state can cause the UI to get out of sync
 and is especially bad.
 
-#### Use [propTypes](http://facebook.github.io/react/docs/reusable-components.html).
+#### 使用[propTypes](http://facebook.github.io/react/docs/reusable-components.html).
 
 React Components should always have complete `propTypes`. Every
 attribute of `this.props` should have a corresponding entry in
@@ -185,7 +183,7 @@ As an exception, if you are passing data through to a child component,
 and you can't use `<child-class>.propTypes.<prop-name>` for some
 reason, you can use `React.PropType.any`.
 
-#### *Never* store state in the DOM.
+#### *絕對不要* 儲存state(狀態)在DOM裡面
 
 Do not use `data-` attributes or classes. All information
 should be stored in JavaScript, either in the React component itself,
@@ -193,7 +191,7 @@ or in a React store if using a framework such as Redux.
 
 ----------------------------------
 
-### Server-side rendering
+### 伺服器端的渲染(rendering)
 
 To make components safe to render server-side, they must adhere
 to a few more restrictions than regular components.
@@ -263,7 +261,7 @@ lifecycle. These functions are not executed server-side.
 
 我們試著要從我們的codebase整個移除掉Backbone。
 
-#### Minimize use of jQuery.
+#### 儘可能最低限度的使用jQuery.
 
 *絕對不要* 使用jQuery來作DOM的操作處理。
 
@@ -271,7 +269,7 @@ lifecycle. These functions are not executed server-side.
 
 你可以使用`$.ajax` (但不要用其他的函式，例如`$.post`) 來進行網路的通訊。
 
-#### Reuse standard components.
+#### 重覆使用標準的元件
 
 If possible, re-use existing components, especially low-level, pure
 components that emit HTML directly. If you write a new such one, and
