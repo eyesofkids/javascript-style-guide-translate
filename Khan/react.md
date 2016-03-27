@@ -122,10 +122,10 @@ No:
 
 #### 只export(輸出)單一個react類別
 
-每個.jsx檔案應該只會輸出單一個React類別，不會有其他的。
-這是為了有可測試性；fixture框架會要求它功能。
+每個.jsx檔案應該只會輸出單一個React類別，不會有其他的類別。
+這是為了可測試性；fixture框架會要求這功能。
 
-注意檔案中仍然可以定義多個類別，但它不能輸出超過一個以上。
+注意檔案中仍然可以定義多個類別，但它不能輸出超過一個以上類別。
 
 ---------------------
 ### 語言特性
@@ -181,7 +181,7 @@ As an exception, if you are passing data through to a child component,
 and you can't use `<child-class>.propTypes.<prop-name>` for some
 reason, you can use `React.PropType.any`.
 
-#### *絕對不要* 儲存state(狀態)在DOM裡面
+#### *絕對不要* 在DOM裡面儲存state(狀態)
 
 Do not use `data-` attributes or classes. All information
 should be stored in JavaScript, either in the React component itself,
@@ -194,7 +194,7 @@ or in a React store if using a framework such as Redux.
 To make components safe to render server-side, they must adhere
 to a few more restrictions than regular components.
 
-#### Props must be plain JSON
+#### Props必需為簡單的JSON
 
 In order to render server-side, the props are serialized and
 deserialized from JSON. This means that e.g. dates must be
@@ -206,7 +206,7 @@ constructs more complex data structures from props, and
 passes those constructs down to child components, that won't
 cause problems.
 
-#### Pure functions of props and state
+#### props(屬性)與state(狀態)中的純粹函式(pure function)
 
 Components must be pure functions of their `props` and `state`.
 This means the output of their `render()` function must not
@@ -227,28 +227,25 @@ non-deterministic output is to generate random
 IDs in `getInitialState()`, and have the output
 of render depend on that ID. Don't do this.
 
-#### Side effect free until `componentDidMount`
+#### 副作用不受拘束直到`componentDidMount`
 
-The parts of the React component lifecycle that are run to
-render on the server must be free from side effects.
+React元件生命週期的幾個部份，是在伺服器端執行render(渲染)，必需是沒有副作用的。
 
-Examples of side effects that must be avoided:
-- Sending an AJAX request
-- Mutating global JS state
-- Injecting elements into the DOM
-- Changing the page title
+需要避免的副作用的範例:
+- 送出 AJAX 要求
+- 改變全域的JS狀態
+- 注射(Injecting)元素到DOM
+- 更改頁面標題
 - `alert()`
 
-The lifecycle methods that run on the server are currently:
+目前在伺服器端執行的生命週期方法:
 
 - `getInitialState()`
 - `getDefaultProps()`
 - `componentWillMount()`
 - `render()`
 
-If you need to execute any of the above listed side effects,
-you must do so in `componentDidMount` or later in the component
-lifecycle. These functions are not executed server-side.
+如果你需要執行上列其中任何一個副作用，你需要在元件生命週期的`componentDidMount`或之後作這件事。這些函式並不是在伺服器端執行的。
 
 ----------------------------------
 ### React 函式庫與元件
