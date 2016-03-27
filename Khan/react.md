@@ -1,7 +1,7 @@
 ## React 風格指引
 
 ----
-* [Syntax](#syntax)
+* [語法](#syntax)
   * [Order your methods with lifecycle first and render last.](#order-your-methods-with-lifecycle-first-and-render-last)
   * [Name handlers handleEventName.](#name-handlers-handleeventname)
   * [Name handlers in props onEventName.](#name-handlers-in-props-oneventname)
@@ -132,7 +132,7 @@ No:
 
 #### 讓"presentation(呈現)"元件保持純粹(pure)
 
-思考把React的世界區分成["logic"
+思考把React的世界分成["logic"
 components 與 "presentation" components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)是很有好處的。
 
 "Logic(邏輯)"元件有應用程式的邏輯，但它們本身不會產出HTML。
@@ -143,35 +143,26 @@ Logic(邏輯)元件可以有內部的state(狀態)，但presentation(呈現)元�
 
 #### 建議使用[props(屬性)而不是state(狀態)](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state).
 
-You almost always want to use props. By avoiding state when possible,
-you minimize redundancy, making it easier to reason about your
-application.
+你幾乎總是要多使用props(屬性)。避免當可以使用props(屬性)時使用state(狀態)，你可以最小化冗長多餘，讓你可以更容易思考你的應用程式。
 
-A common pattern — which matches the "logic" vs. "presentation"
-component distinction — is to create several stateless components
-that just render data, and have a stateful component above them in the
-hierarchy that passes its state to its children via props. The
-stateful component encapsulates all of the interaction logic, while
-the stateless components take care of rendering data in a declarative
-way.
+通常的模式 — 可以符合"logic(邏輯)" vs "presentation(呈現)"元件區別 - 在這個層次結構裡，是建立一些只用於render(渲染)資料的stateless(無狀態)元件，而有些有狀態的元件則位於它們之上，透過props(屬性)傳遞它們的state(狀態)到它們的子元素。有狀態的元件封裝所有互動的邏輯，而無狀態的元件以陳述的方式負責渲染資料。
 
-Copying data from props to state can cause the UI to get out of sync
-and is especially bad.
+從props(屬性)複製資料到state(狀態)，可能會造成脫離同步，這是特別糟的情況。
 
 #### 使用[propTypes](http://facebook.github.io/react/docs/reusable-components.html).
 
-React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應該在`propTypes`裡有相對應的登錄項目。This documents that props need to be passed to a model.
-([example](https://github.com/Khan/webapp/blob/32aa862769d4e93c477dc0ee0388816056252c4a/javascript/search-package/search-results-list.jsx#L14))
+React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應該在`propTypes`裡有相對應的登錄項目。這裡記錄著需要要傳遞到model(模型)的props(屬性)。
+([範例](https://github.com/Khan/webapp/blob/32aa862769d4e93c477dc0ee0388816056252c4a/javascript/search-package/search-results-list.jsx#L14))
 
 If you are passing data through to a child component, you can use
 the prop-type `<child-class>.propTypes.<prop-name>`.
 
-Avoid these non-descriptive prop-types:
+避免使用非描述性的屬性類型:
    * `React.PropTypes.any`
    * `React.PropTypes.array`
    * `React.PropTypes.object`
 
-Instead, use
+反之，使用
    * `React.PropTypes.arrayOf`
    * `React.PropTypes.objectOf`
    * `React.PropTypes.instanceOf`
@@ -183,16 +174,13 @@ reason, you can use `React.PropType.any`.
 
 #### *絕對不要* 在DOM裡面儲存state(狀態)
 
-Do not use `data-` attributes or classes. All information
-should be stored in JavaScript, either in the React component itself,
-or in a React store if using a framework such as Redux.
+不要使用`data-`屬性(attributes)或類別。所有的資訊應該被儲存在Javascript中，不論是在React元件自己裡面，或是如果使用了像Redux框架時的React儲存(store)中。
 
 ----------------------------------
 
 ### 伺服器端的渲染(rendering)
 
-To make components safe to render server-side, they must adhere
-to a few more restrictions than regular components.
+要使元件安全的渲染於伺服器端，它們必需比一般的元件，遵循更多一些的限制。
 
 #### Props必需為簡單的JSON
 
@@ -266,10 +254,7 @@ React元件生命週期的幾個部份，是在伺服器端執行render(渲染)�
 
 #### 重覆使用標準的元件
 
-If possible, re-use existing components, especially low-level, pure
-components that emit HTML directly. If you write a new such one, and
-it finds a use in a different project, put it in a shared location
-such as the react.js package.
+如果可能的話，重覆使用現成的元件，特別是那些直接產出HTML的低階、純粹的元件。如果你寫了一個新的這類元件，然後要用在不同的專案中，把它放在一個共享的位置，例如像react.js的套件包裡。
 
 The standard shared location for useful components that have been
 open sourced is the `react-components.js` package in
