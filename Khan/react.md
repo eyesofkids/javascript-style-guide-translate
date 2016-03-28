@@ -143,7 +143,7 @@ Logic(邏輯)元件可以有內部的state(狀態)，但presentation(呈現)元�
 
 #### 建議使用[props(屬性)而不是state(狀態)](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state).
 
-你幾乎總是要多使用props(屬性)。避免當可以使用props(屬性)時使用state(狀態)，你可以最小化冗長多餘，讓你可以更容易思考你的應用程式。
+你幾乎總是要多使用props(屬性)。避免當可以使用props(屬性)時使用state(狀態)，這樣可以最小化冗長多餘，讓你可以更容易思考你的應用程式。
 
 通常的模式 — 可以符合"logic(邏輯)" vs "presentation(呈現)"元件區別 - 在這個層次結構裡，是建立一些只用於render(渲染)資料的stateless(無狀態)元件，而有些有狀態的元件則位於它們之上，透過props(屬性)傳遞它們的state(狀態)到它們的子元素。有狀態的元件封裝所有互動的邏輯，而無狀態的元件以陳述的方式負責渲染資料。
 
@@ -154,8 +154,7 @@ Logic(邏輯)元件可以有內部的state(狀態)，但presentation(呈現)元�
 React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應該在`propTypes`裡有相對應的登錄項目。這裡記錄著需要要傳遞到model(模型)的props(屬性)。
 ([範例](https://github.com/Khan/webapp/blob/32aa862769d4e93c477dc0ee0388816056252c4a/javascript/search-package/search-results-list.jsx#L14))
 
-If you are passing data through to a child component, you can use
-the prop-type `<child-class>.propTypes.<prop-name>`.
+如果你要傳遞資料到達子元件，你可以使用屬性類型(prop-type) `<child-class>.propTypes.<prop-name>`.
 
 避免使用非描述性的屬性類型:
    * `React.PropTypes.any`
@@ -168,9 +167,7 @@ the prop-type `<child-class>.propTypes.<prop-name>`.
    * `React.PropTypes.instanceOf`
    * `React.PropTypes.shape`
 
-As an exception, if you are passing data through to a child component,
-and you can't use `<child-class>.propTypes.<prop-name>` for some
-reason, you can use `React.PropType.any`.
+如果有例外的情況時，如果你要傳遞資料到達子元件，而且因為某些理由，你沒辦法使用`<child-class>.propTypes.<prop-name>`時，你可以使用`React.PropType.any`。
 
 #### *絕對不要* 在DOM裡面儲存state(狀態)
 
@@ -184,15 +181,9 @@ reason, you can use `React.PropType.any`.
 
 #### Props必需為簡單的JSON
 
-In order to render server-side, the props are serialized and
-deserialized from JSON. This means that e.g. dates must be
-passed as timestamps as opposed to JS `Date` objects.
+為了要能在伺服器端渲染(render)，props(屬性)要能從JSON串列化(serialized)與反串列化(deserialized)。這代表著例如日期需要以時間戳記(timestamps)傳遞，比對到JS的`Date`物件。
 
-Note that this only applies to the root component being
-rendered with server-side rendering. If the root component
-constructs more complex data structures from props, and
-passes those constructs down to child components, that won't
-cause problems.
+注意這只適用於被渲染於伺服器端渲染的根元件。如果根元件的從props(屬性)建構較複雜的資料結構，然後傳遞這些結構往下到子元件，這將不會造成問題。
 
 #### props(屬性)與state(狀態)中的純粹函式(pure function)
 
