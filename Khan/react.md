@@ -247,11 +247,10 @@ React元件生命週期的幾個部份，是在伺服器端執行render(渲染)�
 
 如果可能的話，重覆使用現成的元件，特別是那些直接產出HTML的低階、純粹的元件。如果你寫了一個新的這類元件，然後要用在不同的專案中，把它放在一個共享的位置，例如像react.js的套件包裡。
 
-The standard shared location for useful components that have been
-open sourced is the `react-components.js` package in
-`javascript-packages.json`. This includes components such as these:
+已經開放原始碼，那些有用的元件，它們標準的共享位置位於`react-components.js`套件包，在
+`javascript-packages.json`之中。這裡面包含了如下的元件:
 
-* `SetIntervalMixin` - provides a setInterval method so something can be
+* `SetIntervalMixin` - 提供setInterval方法 method so something can be
   done every x milliseconds
 * `$_` - the i18n wrapper to allow for translating text in React.
 * `TimeAgo` - “five minutes ago”, etc - this replaces $.timeago
