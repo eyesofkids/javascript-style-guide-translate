@@ -2,25 +2,25 @@
 
 ----
 * [語法](#syntax)
-  * [Order your methods with lifecycle first and render last.](#order-your-methods-with-lifecycle-first-and-render-last)
-  * [Name handlers handleEventName.](#name-handlers-handleeventname)
-  * [Name handlers in props onEventName.](#name-handlers-in-props-oneventname)
-  * [Open elements on the same line.](#open-elements-on-the-same-line)
-  * [Align and sort HTML properties.](#align-and-sort-html-properties)
-  * [Only export a single react class.](#only-export-a-single-react-class)
-* [Language features](#language-features)
-  * [Make "presentation" components pure.](#make-presentation-components-pure)
-  * [Prefer <a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state">props to state</a>.](#prefer-props-to-state)
-  * [Use <a href="http://facebook.github.io/react/docs/reusable-components.html">propTypes</a>.](#use-proptypes)
-  * [<em>Never</em> store state in the DOM.](#never-store-state-in-the-dom)
-* [Server-side rendering](#server-side-rendering)
-  * [Props must be plain JSON](#props-must-be-plain-json)
-  * [Pure functions of props and state](#pure-functions-of-props-and-state)
-  * [Side effect free until `componentDidMount`](#side-effect-free-until-componentdidmount)
-* [React libraries and components](#react-libraries-and-components)
-  * [Do not use Backbone models.](#do-not-use-backbone-models)
-  * [Minimize use of jQuery.](#minimize-use-of-jquery)
-  * [Reuse standard components.](#reuse-standard-components)
+  * [按順序排序方法，生命週期放前面，render(渲染)放在最後面](#order-your-methods-with-lifecycle-first-and-render-last)
+  * [用`handleEventName`來命名handlers(處理程序)](#name-handlers-handleeventname)
+  * [用`onEventName`來命名在props(屬性)中的handlers(處理程序)](#name-handlers-in-props-oneventname)
+  * [開頭元素放在同一行](#open-elements-on-the-same-line)
+  * [對齊與排序HTML屬性](#align-and-sort-html-properties)
+  * [只export(輸出)單一個react類別](#only-export-a-single-react-class)
+* [語言特性](#language-features)
+  * [讓"presentation(呈現)"元件保持純粹(pure)](#make-presentation-components-pure)
+  * [建議使用 <a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state">props(屬性)而不是state(狀態)</a>.](#prefer-props-to-state)
+  * [使用 <a href="http://facebook.github.io/react/docs/reusable-components.html">propTypes</a>.](#use-proptypes)
+  * [<em>絕對不要</em>在DOM裡面儲存state(狀態)](#never-store-state-in-the-dom)
+* [伺服器端渲染](#server-side-rendering)
+  * [Props必需為單純的JSON](#props-must-be-plain-json)
+  * [props(屬性)與state(狀態)中的純粹函式](#pure-functions-of-props-and-state)
+  * [副作用不受拘束直到`componentDidMount`](#side-effect-free-until-componentdidmount)
+* [React函式庫與元件](#react-libraries-and-components)
+  * [不要使用Backbone的models(模型)](#do-not-use-backbone-models)
+  * [儘可能最低限度的使用jQuery](#minimize-use-of-jquery)
+  * [重覆使用標準的元件](#reuse-standard-components)
 
 ----
 
@@ -32,11 +32,11 @@
 ----------
 ### 語法
 
-#### 依照順序排序你的方法，lifecycle(生命週期)放前面，render(渲染)放在最後面。
+#### 按順序排序方法，生命週期放前面，render(渲染)放在最後面。
 
 在你的react元件中，你應該依照順序排序方法，例如這樣:
 
-1. lifecycle(生命週期)方法 (按照時間的先後順序:
+1. 生命週期(lifecycle)方法 (按照時間的先後順序:
       `getDefaultProps`,
       `getInitialState`,
       `componentWillMount`,
@@ -49,7 +49,7 @@
 2. 其他的程式碼
 3. `render`
 
-#### 用`handleEventName`來命名handlers(處理程序) .
+#### 用`handleEventName`來命名handlers(處理程序)
 
 例如:
 
@@ -57,7 +57,7 @@
 <Component onClick={this.handleClick} onLaunchMissiles={this.handleLaunchMissiles} />
 ```
 
-#### 用`onEventName`來命名在props(屬性)中的handlers(處理程序)  .
+#### 用`onEventName`來命名在props(屬性)中的handlers(處理程序)
 
 這與React的事件命名方式是一致的: `onClick`, `onDrag`,
 `onChange`, 等等。
@@ -175,11 +175,11 @@ React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應�
 
 ----------------------------------
 
-### 伺服器端的渲染(rendering)
+### 伺服器端的渲染
 
 要使元件安全的渲染於伺服器端，它們必需比一般的元件，遵循更多一些的限制。
 
-#### Props必需為簡單的JSON
+#### Props必需為單純的JSON
 
 為了要能在伺服器端渲染(render)，props(屬性)要能從JSON串列化(serialized)與反串列化(deserialized)。這代表著例如日期需要以時間戳記(timestamps)傳遞，比對到JS的`Date`物件。
 
@@ -187,24 +187,15 @@ React元件應該一定有完整的`propTypes`。每個`this.props`的屬性應�
 
 #### props(屬性)與state(狀態)中的純粹函式(pure function)
 
-Components must be pure functions of their `props` and `state`.
-This means the output of their `render()` function must not
-depend on either KA-specific globals, on browser-specific
-state, or browser-specific APIs.
+元件必需是他們的`props`與`state`的純粹函式。這代表著他們`render()`函式的輸出，必需是沒有依賴於KA-特定的全域(數值、API或物件)，還是瀏覽器特定的狀態，或是瀏覽器特定的API。
 
-Examples of KA-specific globals include anything attached to
-the `KA` global, e.g. `KA.getUserId()`, or data extracted from
-the DOM such as `data-` properties attached to other DOM nodes.
+KA-特定的全域的範例，包含了所有附著在`KA`的全域(函式)，例如`KA.getUserId()`，或是從DOM提取出的資料，像是附著其他DOM節點的`data-`屬性。
 
-Examples of browser-specific state include the user agent,
-the screen resolution, the device pixel density etc. 
+瀏覽器特定的狀態的範例，包含了使用者代理(user agent)、螢幕解析度、設備像素密度等等。
 
-An example of a browser-specific API is `canvas.getContext()`.
+瀏覽器特定的API的範例，是`canvas.getContext()`。
 
-The output must be deterministic. One way to get
-non-deterministic output is to generate random
-IDs in `getInitialState()`, and have the output
-of render depend on that ID. Don't do this.
+輸出必需是確定的。有個方式可以得到不確定的輸出結果，就是在`getInitialState()`中產生隨機的ID，然後讓渲染的輸出依照這個ID。千萬不要這樣作。
 
 #### 副作用不受拘束直到`componentDidMount`
 
@@ -227,9 +218,9 @@ React元件生命週期的幾個部份，是在伺服器端執行render(渲染)�
 如果你需要執行上列其中任何一個副作用，你需要在元件生命週期的`componentDidMount`或之後作這件事。這些函式並不是在伺服器端執行的。
 
 ----------------------------------
-### React 函式庫與元件
+### React函式庫與元件
 
-#### 不要使用Backbone的models
+#### 不要使用Backbone的models(模型)
 
 使用flux的actions(動作)，或是直接使用`$.ajax`作為取代。
 
@@ -250,18 +241,15 @@ React元件生命週期的幾個部份，是在伺服器端執行render(渲染)�
 已經開放原始碼，那些有用的元件，它們標準的共享位置位於`react-components.js`套件包，在
 `javascript-packages.json`之中。這裡面包含了如下的元件:
 
-* `SetIntervalMixin` - 提供setInterval方法 method so something can be
-  done every x milliseconds
-* `$_` - the i18n wrapper to allow for translating text in React.
-* `TimeAgo` - “five minutes ago”, etc - this replaces $.timeago
+* `SetIntervalMixin` - 提供setInterval方法，這可以讓你每 x 毫秒作某件事。
+* `$_` - i18n封装(wrapper)，讓你可以在React中作翻譯文字。
+* `TimeAgo` - “5分鐘前”之類的 - 這取代了$.timeago
 
-Reusable components that have not (yet) been open sourced are in the
-(poorly named) `react.js` package.  This include components such as
-these:
+可重覆使用的元件，但沒有或尚未開放原始碼的，是位在(命名還沒有好)`react.js`套件中。這包含了像是這些:
 
-* `KUIButton` - render a Khan Academy styled button.
-* `Modal` - create a modal dialog.
+* `KUIButton` - 渲染(render)Khan Academy風格的按鈕。
+* `Modal` - 建立一個跳出的模式對話視窗(modal dialog)。
 
-This list is far from complete.
+這份列表並沒有完整列出，還差滿多的。
 
 ### 
